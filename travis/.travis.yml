@@ -1,0 +1,54 @@
+language: node_js
+# Be sure, you're using the same NodeJS version everywhere
+node_js:
+  - "8.11.1"
+# Env variables used for testing
+env:
+  - NODE_ENV=test
+
+# Right here, decrypt the file you need and in case it's an archive - expand it.
+# Below is the example of using an archive containing Google App Engine configuration files
+# for different environments. In this case, an application depends on having gae.json file
+# in the root of the app.
+before_install:
+  - openssl aes-256-cbc -K $key -iv $iv -in secrets.tar.enc -out secrets.tar -d
+  - tar xvf secrets.tar
+  - if [ "$TRAVIS_BRANCH" != "master" ]; then mv gae-staging.json gae.json; fi
+  - if [ "$TRAVIS_BRANCH" = "master" ]; then mv gae-production.json gae.json; fi
+
+# Install all the necessary dependencies, eg. datastore emulator
+before_script:
+  - export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+  - echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+  - curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+  - sudo apt-get update && sudo apt-get install google-cloud-sdk
+  - sudo apt-get install google-cloud-sdk-datastore-emulator
+  - nohup gcloud beta emulators datastore start --project=test-project --host-port 127.0.0.1:8081 --no-store-on-disk &
+
+# In this case, master represents production environment and we don't want to run tests there.
+script: 
+  - if [ "$TRAVIS_BRANCH" != "master" ]; then yarn test; fi
+
+# One GCP project should represent one environment.
+deploy:
+  - provider: gae
+    keyfile: gae.json
+    project: project-staging
+    config: app-staging.yaml
+    skip_cleanup: true
+    on:
+      branch: develop
+  - provider: gae
+    keyfile: gae.json
+    project: project
+    config: app-production.yaml
+    skip_cleanup: true
+    on:
+      branch: master
+
+notifications:
+  slack:
+    rooms:
+      - <token>
+    on_success: change
+    on_failure: change
