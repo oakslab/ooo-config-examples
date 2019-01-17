@@ -27,7 +27,7 @@ before_script:
 
 # In this case, master represents production environment and we don't want to run tests there.
 script: 
-  - if [ "$TRAVIS_BRANCH" != "master" ]; then yarn test; fi
+  - if [ "$TRAVIS_BRANCH" != "master" ]; then npm test; fi
 
 # One GCP project should represent one environment.
 deploy:

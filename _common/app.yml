@@ -1,0 +1,22 @@
+runtime: nodejs
+env: flex
+service: default
+
+env_variables:
+  HOST: "0.0.0.0"
+  CUSTOM_ENV: production
+  NODE_ENV: production
+
+handlers:
+- url: /.*
+  redirect_http_response_code: 301
+  script: auto
+  secure: always
+
+manual_scaling:
+  instances: 1
+
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10

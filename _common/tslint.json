@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "tslint-config-prettier",
+    "tslint-config-airbnb"
+  ],
+  "rules": {
+    "import-name": false,
+    "semicolon": true
+  },
+  "defaultSeverity": "off",
+  "linterOptions": {
+    "exclude": ["node_modules/**/*.ts", "build/**/*"]
+  }
+}
