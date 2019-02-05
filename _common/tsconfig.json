@@ -1,10 +1,10 @@
 {
   "exclude": ["./node_modules/*", "../examples/*"],
   "compilerOptions": {
+    "strict": true,
     "baseUrl": "./app",
     "outDir": "./build/",
     "sourceMap": true,
-    "noImplicitAny": true,
     "module": "esnext",
     "target": "es5",
     "jsx": "react",
