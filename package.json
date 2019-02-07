@@ -1,0 +1,29 @@
+{
+  "name": "@oakslab/ooo-config",
+  "version": "0.0.1",
+  "description": "Shared configuration files for OAK'S LAB projects",
+  "license": "MIT",
+  "engines": {
+    "node": ">=10"
+  },
+  "files": [
+    "common/*"
+  ],
+  "keywords": [
+    "tsconfig",
+    "tslint",
+    "typescript",
+    "prettier",
+    "jest",
+    "ts",
+    "config",
+    "configuration"
+  ],
+  "dependencies": {
+    "tslint": "^5.12.1",
+    "tslint-config-airbnb": "^5.11.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.3.1"
+  }
+}
