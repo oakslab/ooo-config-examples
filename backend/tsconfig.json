@@ -1,0 +1,12 @@
+{
+  "extends": "../common/tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "module": "CommonJS",
+    "esModuleInterop": true,
+    "types": ["mocha"],
+    "baseUrl": ".",
+    "target": "ES6"
+  },
+  "include": ["./app/**/*", "./test/**/*"]
+}
