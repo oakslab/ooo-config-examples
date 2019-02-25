@@ -64,5 +64,5 @@ module.exports = require("@oakslab/ooo-config/common/.prettierrc");
 `.jest.config.js`
 
 ```js
-module.exports = require("@oakslab/ooo-config/common/jest.config");
+module.exports = require("@oakslab/ooo-config/common/.jest.config");
 ```

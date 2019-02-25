@@ -1,0 +1,17 @@
+language: node_js
+
+deploy:
+  provider: npm
+  email: hi@mynameisyuri.com
+  api_key:
+    secure: FOXlmq0EiBuc4mhG4JZfgGwQmSolBNYD7QwXL1ICX/CLYG4nrJjm6W4Fa9FlhPMMTZ7HAhOSIJmX097hPwGHz6PtLbyLeiEzstLlwOu8A8ORKnuB3OETDuPQBP+NxUCRH+XCQadOSl6nuCiyeHP/FNrhiZpAdH5TupePDido2zSO7KFu7EQrn+VXKXl/1ARaNkegftbVG+qfRUkz0ZQ/kQDPUvMg5Qoc2h2TTorttnDyM3pH5yHS8aDG9xmg4BaQbkdMjej+e0k8Cv0KiKmEFOurjgIOr4vF38i3Kz6ZNyfkKHaIqxP6PMKSLaRNndotU6ysxGKhe8pANEgbzqboN6e5uT1/EomoIWVYGXguvgVKHpfBo5xHupj/Hjnqfgor1YWI6MINdAHAMXUmHpMSQYLwBYrGtMSU7RTuiE5DRzoQA/8500BB6Xi+DCclgVMK9ZkKB1G2eHu8rxWXmXBVRf1lzys7L/x0IkEQLRhBGf7bu1bwcdHloZx3jA+EIBMNuku/EuAV4d6Zw/EbqqQoA7YH+dCHBKkrttHmvCiBrfecjAaPBx1Iu9QaIcYChvVnQYyWxNKq4QXfpxn4l7dG1PNY7hMzn7s8u8xa4z6G9x8AS7hp5ih7x7sys+/dAYaz0BOpq5277lMwz6yEdWeirJghIMGGt2BO1gTPRT6SR2s=
+  on:
+    all_branches: true
+    repo: oakslab/ooo-config-examples
+
+notifications:
+  email:
+    recipients:
+      - hi@mynameisyuri.com
+    on_success: change
+    on_failure: always
