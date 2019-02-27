@@ -1,0 +1,15 @@
+language: node_js
+
+deploy:
+  provider: npm
+  email: ${NPM_EMAIL}
+  api_key:
+    secure: ${NPM_TOKEN}
+  on:
+    tags: true
+    repo: oakslab/ooo-config-examples
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always
