@@ -66,3 +66,9 @@ module.exports = require("@oakslab/ooo-config/common/.prettierrc");
 ```js
 module.exports = require("@oakslab/ooo-config/common/.jest.config");
 ```
+
+## Package publishing
+
+1. Bump the version in `package.json` and commit the changes. For example `0.0.3` --> `0.0.4`. This package should follow [Semantic Versioning 2.0.0](https://semver.org/).
+2. Go to [Release page](https://github.com/oakslab/ooo-config-examples/releases) and create a new release from the master branch. Provide the same tag version you specified in the previous step. Title and description are also important, let your team members know what has been done in this release.
+3. Publish release and Travis CI does the rest.
