@@ -1,6 +1,6 @@
 {
   "name": "@oakslab/ooo-config",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Shared configuration files for OAK'S LAB projects",
   "license": "MIT",
   "engines": {

@@ -4,7 +4,7 @@
     "tslint-react",
     "tslint-config-airbnb",
     "tslint-config-prettier",
-    "tslint-plugin-prettier",
+    "tslint-plugin-prettier"
   ],
   "rules": {
     "import-name": false,
