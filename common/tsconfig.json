@@ -10,7 +10,6 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "lib": ["es2018", "dom", "esnext.asynciterable"],
-    "typeRoots": ["./custom_typings"],
     "types": ["jest"]
   },
   "paths": {
