@@ -1,0 +1,29 @@
+{
+  "env": {
+    "jest": true
+  },
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "airbnb-typescript/base",
+    "prettier",
+    "prettier/@typescript-eslint",
+    "prettier/react",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "no-shadow": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "class-methods-use-this": "off",
+    "import/no-extraneous-dependencies": "off"
+  }
+}

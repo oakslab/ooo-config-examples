@@ -5,19 +5,16 @@
     "es6": true
   },
   "extends": [
-    "last",
-    "prettier/react",
+    "../common/.eslintrc",
     "plugin:react/recommended",
-    "plugin:flowtype/recommended",
     "plugin:jest/recommended"
   ],
+  "plugins": ["react-hooks"],
   "settings": {
     "react": { "version": "detect" }
   },
   "rules": {
-    "no-console": "off",
-    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
-    "react/react-in-jsx-scope": "off",
-    "react/display-name": "off"
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 }
