@@ -40,7 +40,7 @@ deploy:
     on:
       all_branches: true
       tags: true
-      condition: $TRAVIS_TAG =~ ^(v[0-9]+\.[0-9]+\.[0-9]\-RC)$
+      condition: $TRAVIS_TAG =~ ^(v[0-9]+\.[0-9]+\.[0-9]+\-RC)$
   - provider: gae
     keyfile: gae.json
     project: project
@@ -49,7 +49,7 @@ deploy:
     on:
       all_branches: true
       tags: true
-      condition: $TRAVIS_TAG =~ ^(v[0-9]+\.[0-9]+\.[0-9])$
+      condition: $TRAVIS_TAG =~ ^(v[0-9]+\.[0-9]+\.[0-9]+)$
 
 notifications:
   slack:
