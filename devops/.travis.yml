@@ -1,7 +1,7 @@
 language: node_js
 # Be sure, you're using the same NodeJS version everywhere
 node_js:
-  - "8.11.1"
+  - 10
 # Env variables used for testing
 env:
   - NODE_ENV=test
