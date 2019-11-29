@@ -38,6 +38,7 @@ deploy:
     skip_cleanup: true
     on:
       branch: develop
+      tags: true
   - provider: gae
     keyfile: gae.json
     project: project
@@ -45,6 +46,7 @@ deploy:
     skip_cleanup: true
     on:
       branch: master
+      tags: true
 
 notifications:
   slack:
