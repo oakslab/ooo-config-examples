@@ -13,8 +13,8 @@ env:
 before_install:
   - openssl aes-256-cbc -K $key -iv $iv -in secrets.tar.enc -out secrets.tar -d
   - tar xvf secrets.tar
-  - if [[ "$TRAVIS_TAG" =~ ^(v[0-9]+\.[0-9]+\.[0-9]\-RC)$ ]]; then mv gae-staging.json gae.json; fi
-  - if [[ "$TRAVIS_TAG" =~ ^(v[0-9]+\.[0-9]+\.[0-9])$ ]]; then mv gae-production.json gae.json; fi
+  - if [[ "$TRAVIS_TAG" =~ ^(v[0-9]+\.[0-9]+\.[0-9]+\-RC)$ ]]; then mv gae-staging.json gae.json; fi
+  - if [[ "$TRAVIS_TAG" =~ ^(v[0-9]+\.[0-9]+\.[0-9]+)$ ]]; then mv gae-production.json gae.json; fi
 
 # Install all the necessary dependencies, eg. datastore emulator
 before_script:
@@ -28,7 +28,7 @@ before_script:
 
 # In this case, semantic release tag without *-RC suffix represents production environment and we don't want to run tests there.
 script: 
-  - if ! [[ "$TRAVIS_TAG" =~ ^(v[0-9]+\.[0-9]+\.[0-9])$ ]]; then npm test; fi
+  - if ! [[ "$TRAVIS_TAG" =~ ^(v[0-9]+\.[0-9]+\.[0-9]+)$ ]]; then npm test; fi
 
 # One GCP project should represent one environment.
 deploy:
