@@ -24,6 +24,7 @@ before_script:
   - sudo apt-get update && sudo apt-get install google-cloud-sdk
   - sudo apt-get install google-cloud-sdk-datastore-emulator
   - nohup gcloud beta emulators datastore start --project=test-project --host-port 127.0.0.1:8081 --no-store-on-disk &
+  - printf '{"version": "%s", "timestamp": %s}\n' "${TRAVIS_TAG}" "$(date +%s)" > version.json
 
 # In this case, master represents production environment and we don't want to run tests there.
 script: 
@@ -37,16 +38,18 @@ deploy:
     config: app-staging.yaml
     skip_cleanup: true
     on:
-      branch: develop
+      all_branches: true
       tags: true
+      condition: $TRAVIS_TAG =~ ^(v[0-9]+\.[0-9]+\.[0-9]\-RC)$
   - provider: gae
     keyfile: gae.json
     project: project
     config: app-production.yaml
     skip_cleanup: true
     on:
-      branch: master
+      all_branches: true
       tags: true
+      condition: $TRAVIS_TAG =~ ^(v[0-9]+\.[0-9]+\.[0-9])$
 
 notifications:
   slack:
