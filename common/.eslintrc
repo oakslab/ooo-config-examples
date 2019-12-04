@@ -20,8 +20,7 @@
     "import/prefer-default-export": "off",
     "@typescript-eslint/ban-ts-ignore": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
-    "no-shadow": "off",
-    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error", { "functions": true, "classes": true }],
     "@typescript-eslint/no-explicit-any": "off",
     "class-methods-use-this": "off",
     "import/no-extraneous-dependencies": "off"
