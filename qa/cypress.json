@@ -1,0 +1,21 @@
+{
+    "env": {
+        "BASE_URL": ""
+    },
+
+    "viewportHeight": 1080,
+    "viewportWidth": 1920,
+
+    "numTestsKeptInMemory": 25,
+
+    "ignoreTestFiles": "actionwords*",
+
+    "defaultCommandTimeout": 10000,
+    "pageLoadTimeout": 100000,
+
+    "video": false,
+    "trashAssetsBeforeRuns": true,
+
+    "reporter": "junit",
+    "reporterOptions": { "mochaFile": "cypress/reports/report-[hash].xml"}
+}
