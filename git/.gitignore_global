@@ -1,0 +1,14 @@
+*.log
+nbproject
+.idea
+/node_modules
+bower_components
+.env
+
+######################
+# OS generated files #
+######################
+.DS_Store
+ehthumbs.db
+Icon
+Thumbs.db

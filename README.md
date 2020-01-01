@@ -12,6 +12,7 @@ These are configs we use on our projects.
 - [Mobile](./mobile) - mobile specific
 - [Devops](./devops) - devops specific
 - [QA](./qa) - qa specific
+- [Git](./git) - Git specific
 
 ## Install
 
