@@ -1,0 +1,65 @@
+[user]
+	name = John Doe
+	email = john@oakslab.com
+[core]
+	# windows->true, linux-> input
+	autocrlf = input
+	safecrlf = false
+	# must be absolute path
+	excludesfile = /Users/john/.gitignore_global
+[alias]
+	f = fetch
+	# updates your branch with upstream (if fast-forward is possible)
+	ff = !git merge --ff-only `git rev-parse --symbolic-full-name --abbrev-ref=strict HEAD@{u}`
+	fp = fetch --prune
+	st = status
+	cm = commit
+	cma = commit --amend
+	br = branch
+	co = checkout
+	cp = cherry-pick
+	df = diff
+	rb = rebase
+	rbi = rebase -i
+	rbc = rebase --continue
+	rh = reset --hard
+	su = submodule update
+	# graph for current branch
+	l  = log --graph --decorate --pretty=oneline --abbrev-commit
+	# graph for all branches
+	ll = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	# log for current branch showing diffs (-m is for showing mergecommits too)
+	ld = log -p -m
+	# log for current branch showing summary of changed files (-m is for showing mergecommits too)
+	ls = log --stat -m
+	# number of commits for each person
+	stats = shortlog -n -s --no-merges
+	# remove remote branch (remote must be named origin), usage: git rmb test
+	rmb = !sh -c 'git push origin :$1' -
+	# shows local > tracked remote
+	brt = for-each-ref --format=\"%(refname:short) > %(upstream:short)\" refs/heads
+	# get upstream tracked branch or error
+	brtracked = rev-parse --symbolic-full-name --abbrev-ref=strict HEAD@{u}
+	# commit all changes to a WIP commit
+	wip = !git add --all && git commit -m WIP
+[diff]
+	mnemonicprefix = true
+[pull]
+	rebase = true
+[push]
+	default = current
+[color]
+	ui = auto
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = cyan
