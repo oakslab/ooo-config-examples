@@ -3,6 +3,8 @@
   "version": "0.0.7",
   "description": "Shared configuration files for OAK'S LAB projects",
   "license": "MIT",
+  "author": "OAK'S LAB",
+  "repository": "git@github.com:oakslab/ooo-config-examples.git",
   "engines": {
     "node": ">=10"
   },
