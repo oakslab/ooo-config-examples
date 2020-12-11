@@ -1,0 +1,43 @@
+name: Build and Deploy API branch
+
+on:
+  push:
+    branches:
+      - feature/*
+      - hotfix/*
+      - release/*
+
+env:
+  BRANCH: "${{github.ref}}"
+
+jobs:
+  deploy:
+    name: Build and Deploy Prisma API
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: "286.0.0"
+          service_account_email: ${{ secrets.GCP_STAGING_SA_EMAIL }}
+          service_account_key: ${{ secrets.GCP_STAGING_SA_KEY }}
+          export_default_credentials: true
+          project_id: ${{ env.GCP_PROJECT }}
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules-api2
+        with:
+          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('api2/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Build and deploy
+        run: |
+          printf '{"ref": "%s", "version": "%s", "timestamp": %s}\n' "${{github.sha}}" "${{github.ref}}" "$(date +%s)" > version.json
