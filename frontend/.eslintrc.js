@@ -1,5 +1,5 @@
 module.exports = {
-  parser: '@typescript-eslint/parser',
+  extends: '../common/.eslintrc.js',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -24,7 +24,5 @@ module.exports = {
     'react/no-unescaped-entities': ['error', { forbid: ['>', '}'] }], // Allow quote marks in text
     'react/prop-types': 'off', // Allow not providing PropTypes as we use FC<Props> to type props
     'react/react-in-jsx-scope': 'off', // Allow not importing React as Next imports it automatically
-    '@typescript-eslint/ban-ts-comment': 'off', // Allow @ts-ignore
-    '@typescript-eslint/explicit-module-boundary-types': 'off', // Allow implicit function return types
   },
 };
