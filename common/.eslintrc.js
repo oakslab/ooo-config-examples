@@ -22,6 +22,6 @@ module.exports = {
       }, // Disallow one letter generics
     ],
     '@typescript-eslint/no-explicit-any': ['error', { fixToUnknown: true }],
-    'no-eq-null': 'error', // Disallow null comparisons (foo == null)
+    eqeqeq: ['error', 'always'], // Disallow == comparisons
   },
 };
